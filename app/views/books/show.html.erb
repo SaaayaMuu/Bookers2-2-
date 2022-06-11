@@ -1,4 +1,4 @@
-<%= render 'books/newbook2', book: @book %>
+<%= render 'books/newbook2', book: @book_new, user: @user %>
 
   <div class="col-md-8 offset-md-1">
     <h2>Book detail</h2>
@@ -19,7 +19,7 @@
           <td><%= @book.body %></td>
           <% if @book.user == current_user %>
             <td>
-              <%= link_to edit_book_path, class: "btn btn-sm btn-success" do %>edit
+              <%= link_to edit_book_path, class: "btn btn-sm btn-success" do %>Edit
               <% end %>
             </td>
             <td>

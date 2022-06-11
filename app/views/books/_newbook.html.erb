@@ -3,8 +3,8 @@
    <div class="row"> 
      <div class="col-md-3">
         <h2>User info</h2>
-          <% if @user.profile_image.attached? %>
-          <%= image_tag @user.profile_image, size:"100x100" %>
+          <% if current_user.profile_image.attached? %>
+          <%= image_tag current_user.profile_image, size:"100x100" %>
           <% else %>
           <%= image_tag 'no_image', size:"100x100" %>
           <% end %>
@@ -16,14 +16,14 @@
           </tr>
           <tr>
             <th>introduction</th>
-            <th><%= current_user.introduct %></th>
+            <th><%= current_user.introduction %></th>
           </tr>
         </table>
           <tr>
             <div class="row">
-              <% if user_signed_in? && @user == current_user %>
-                <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-                  <i class="fa-solid fa-user-gear"></i>
+                <% if user_signed_in? && user == current_user %>
+                <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+                  <i class="fas fa-user-cog"></i>
                 <% end %>
               <% end %>
             </div>
